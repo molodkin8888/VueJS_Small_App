@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <my-header></my-header>
     <router-view/>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+
+export default {
+  components: {
+    'my-header':Header,
+    'my-footer': Footer
+  }
+}
+</script>
+
 
 <style>
 #app {
