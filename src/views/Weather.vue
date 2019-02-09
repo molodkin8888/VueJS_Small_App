@@ -54,7 +54,7 @@ export default {
         that.city = response.data.city;
         that.Country = response.data.country;
         var URL_weather = "https://api.openweathermap.org/data/2.5/weather?q=";
-        var currentKey = "&APPID=08a6929a460f887bef35ca5097e084e3";
+        var currentKey = "&APPID=08a6929a460f88e084e3";
         axios.get(URL_weather + that.city + ',' + that.Country + currentKey).then(function(response){
           that.Main = response.data.weather;
           that.Wind = response.data.wind.speed;
