@@ -12,9 +12,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/faq',
-      name: 'faq',
-      component: () => import('./views/Faq.vue')
+      path: '/weather',
+      name: 'weather',
+      component: () => import('./views/Weather.vue')
     },
     {
       path: '/random',
@@ -25,7 +25,17 @@ export default new Router({
       path: '/shop',
       name: 'shop',
       component: () => import('./views/MiniShop.vue')
-    }
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: () => import('./views/InfoTablePeople.vue')
+    },
+    {
+      path: '/confirmOrder',
+      name: 'confirmOrder',
+      component: () => import('./views/confirmOrderProduct.vue')
+    },
 
   ]
 })

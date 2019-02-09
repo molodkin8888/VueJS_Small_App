@@ -1,39 +1,61 @@
 <template>
-<div class="container h-100">  
-    <h2 class="title">Welcom to the small apps by Vue.js</h2>
-        <div class="row h-100 justify-content-center mt-5">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <router-link to="/faq" class="link_to">How its work?</router-link>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <router-link to="/shop" class="link_to">Mini-online-shop</router-link>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <router-link to="/random" class="link_to">Random people</router-link>
-                </div>
-        </div>
+<div class="container h-100"> 
+	<h2 class="title">Choose mini-app by VueJS: </h2>
+		<el-carousel :interval="3000" type="card" height="200px">
+			<el-carousel-item v-for="item in pages" :key="item">
+				<router-link :to="{ path: item}"> {{ item }}</router-link>
+			</el-carousel-item>
+		</el-carousel>
 </div>
 </template> 
 
 <script>
-export default {
 
+export default {
+	data() { 
+		return {
+			pages: [
+				"/weather",
+				"/shop",
+				"/random",
+				"/table",
+				"/diagrams"
+			]
+		}
+	}
 }
 </script>
 
 <style scoped>
-    .title{
-        margin-top: 20%;
-        text-transform: uppercase;
-    }
+	.title{
+		margin-top: 20%;
+		text-transform: uppercase;
+	}
 
-    .link_to{
-        text-transform: uppercase;
-        color: #000;
-    }
+	.link_to{
+		text-transform: uppercase;
+		color: #000;
+	}
 
-    .link_to:hover{
-        color: blue;
-        text-decoration: none;
-    }
+	.link_to:hover{
+		color: blue;
+		text-decoration: none;
+	}
+
+	.el-carousel__item h3 {
+		color: #475669;
+		font-size: 14px;
+		opacity: 0.75;
+		line-height: 200px;
+		margin: 0;
+	}
+
+	.el-carousel__item:nth-child(2n) {
+		background-color: #99a9bf;
+	}
+
+	.el-carousel__item:nth-child(2n+1) {
+		background-color: #d3dce6;
+	}
+
 </style>
