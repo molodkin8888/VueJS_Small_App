@@ -75,7 +75,7 @@ export default {
 		width: 100%;
 		border: 1px solid #dedede;
 		padding: 15px;
-	}
+	} 
 
 	tr{
 		border-bottom: 1px solid #dedede;
