@@ -105,4 +105,5 @@ export default{
 			font-size: 11px;
 		}
 	}
+	
 </style>
