@@ -36,6 +36,11 @@ export default new Router({
       name: 'confirmOrder',
       component: () => import('./views/confirmOrderProduct.vue')
     },
+    {
+      path: '/diagrams',
+      name: 'line-chart',
+      component: () => import('./views/AgeDiagrams.vue')
+    },
 
   ]
 })

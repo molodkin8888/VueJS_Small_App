@@ -12,7 +12,7 @@
 			<div class="gender_people">{{index.gender}}</div>
 			<div class="phone_people">{{index.phone}}</div>
 			<div class="address_people">{{index.location.city}}</div>
-			<iframe class="coordinats_people" v-bind:src="'https://maps.google.com/maps?q=' + index.location.coordinates.latitude +',' + index.location.coordinates.longitude + '&z=7&amp;output=embed'"></iframe>
+			<iframe class="coordinats_people" :src="'https://maps.google.com/maps?q=' + index.location.coordinates.latitude +',' + index.location.coordinates.longitude + '&z=7&amp;output=embed'"></iframe>
 			<span @click="testClick()">call mixin</span>
 		</div>
 	</div>
@@ -35,7 +35,7 @@ export default{
 		getPeople: function() {
 			var that = this;
 			var url = "https://randomuser.me/api/?results=";
-			axios.get(url + this.quantity).then(function(response) {
+			axios.get(url + that.quantity).then(function(response) {
 				that.people = response.data.results;
 			})
 		}       

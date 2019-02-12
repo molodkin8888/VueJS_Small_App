@@ -29,7 +29,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      city: '',
+      city: 'Minsk',
       id: '',
       Main:[],
       Wind:[],
@@ -48,12 +48,13 @@ export default {
   },
 
   methods: { 
-    getMyCity(){     
+    // use API current location
+   /* getMyCity(){     
       var that = this;
       axios.get('http://ipinfo.io').then(function(response){
         that.city = response.data.city;
         that.Country = response.data.country;
-        var URL_weather = "https://api.openweathermap.org/data/2.5/weather?q=";
+        var URL_weather = "https://api.openweathermap.org/data/2.5/weather?q=London,UK";
         var currentKey = "&APPID=08a6929a460f887bef35ca5097e084e3";
         axios.get(URL_weather + that.city + ',' + that.Country + currentKey).then(function(response){
           that.Main = response.data.weather;
@@ -64,7 +65,22 @@ export default {
           that.pressure = response.data.main.pressure;
           that.id = response.data.id;
         })
-      })
+      })*/
+
+      getMyCity(){     
+      var that = this;
+     
+        var URL_weather = "https://api.openweathermap.org/data/2.5/weather?q=Minsk";
+        var currentKey = "&APPID=08a6929a460f887bef35ca5097e084e3";
+        axios.get(URL_weather + currentKey).then(function(response){
+          that.Main = response.data.weather;
+          that.Wind = response.data.wind.speed;
+          var temp = response.data.main.temp - 273.5;
+          that.Temp = Number(temp).toFixed(1);
+          that.humidity = response.data.main.humidity;
+          that.pressure = response.data.main.pressure;
+          that.id = response.data.id;
+        })
     },
 
     checkId(){
@@ -72,7 +88,7 @@ export default {
       var currId = 'city_' + that.id;
       var newStyle = document.getElementById(currId);
       if(this.aligmentProps === true){
-        newStyle.style.textAlign = "left";
+        newStyle.style.textAlign = "center";
       }
     }
   },

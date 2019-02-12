@@ -12,18 +12,20 @@ import VueAxios from 'vue-axios'
 import ElTable from 'element-table'
 import 'element-theme-chalk';
 import Element from 'element-ui'
- 
+import locale from 'element-ui/lib/locale/lang/en'
+import {store} from './store'
 
 Vue.use(BootstrapVue)
 library.add(faCoffee)
 Vue.use(VueAxios, axios)
 Vue.use(ElTable)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.use(Element)
+Vue.use(Element, { locale })
 
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')
